@@ -1,11 +1,4 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 class Qnode{
     int key;
     Qnode next;
@@ -53,3 +46,6 @@ public class Main
         System.out.println("Queue Rear : " + q.rear.key);
 	}
 }
+o/p
+Queue Front : 30
+Queue Rear : 50
