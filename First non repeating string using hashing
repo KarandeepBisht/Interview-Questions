@@ -1,0 +1,50 @@
+import java.util.*;
+class countIndex{
+    int count, index;
+    public countIndex(int index){
+        this.index=index;
+        this.count=1;
+    }
+    public void inCount(){
+        this.count++;
+    }
+}
+
+public class Main
+{
+    static final int noofchar=256;
+    static HashMap<Character, countIndex> cc=new HashMap<Character, countIndex>(noofchar);
+    static void getCount(String str){
+        for(int i=0; i<str.length(); i++){
+            if(cc.containsKey(str.charAt(i))){
+                cc.get(str.charAt(i)).inCount();
+                }
+                else{
+                    cc.put(str.charAt(i), new countIndex(i));
+                }
+            }
+        }
+        static int nonRepeating(String str){
+            getCount(str);
+            int res=Integer.MAX_VALUE;
+            for(Map.Entry<Character, countIndex> entry: cc.entrySet()){
+                int c=entry.getValue().count;
+                int ind=entry.getValue().index;
+                if(c==1 && ind<res){
+                    res=ind;
+                }
+            }
+            return res;
+        }
+	public static void main(String[] args) {
+	    String str = "geeksforgeeks";
+	    int index=nonRepeating(str);
+	   System.out.println(index == -1
+                ? "Either all characters are repeating or string "
+                      + "is empty"
+                : "First non-repeating character is "
+                      + str.charAt(index));
+	}
+}
+o/p
+First non-repeating character is  f
